@@ -1,0 +1,45 @@
+body {
+    background-color: #F4F4F4;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: oswald, sans-serif;
+}
+
+header img{
+    height: 80px;
+    width: 80px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    align-items: center;
+}
+
+.logo h2 {
+    font-size: 8.37vw;
+    font-family: oswald, sans-serif;
+    margin: 0;
+    font-weight: normal;
+}
+header {
+    margin: 6.51vw 8.14vw 0 5.35vw;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.burgerMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+}
+
+.burgerMenu div {
+    width: 10.93vw;
+    height: 3px;
+    background-color: #000000;
+}
