@@ -6,6 +6,7 @@
     position: relative;
     height: 300vh;
     gap: 40px;
+    max-height: 170vh;
 }
 
 .section1 h4 {
@@ -74,14 +75,37 @@
     height: 288px;
     margin-top: 113px;
     z-index: 20;
+    display: flex;
+    justify-content: center;
 }
 
-.btns {
+.nextBtn {
+    position: absolute;
+    right: 3%;
+    transform: translateY(-50px);
+    z-index: 30;
+}
+
+.backBtn {
+    position: absolute;
+    left: 3%;
+    transform: translateY(-50px);
+    z-index: 30;
+}
+
+.image {
+    transition: opacity 700ms ease-out; /* Define the transition property */
+}
+
+.carouselContent {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+}
+
+.img {
+    height: 288px;
     position: relative;
-    transform: translateY(-350px);
+    display: flex;
+    z-index: 10;
 }
 
 .carousel img {
@@ -97,4 +121,99 @@
     font-size: 32px;
 }
 
+.section3 {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
 
+.postsHeader {
+    width: 84vw;
+    font-size: 98px;
+    font-weight: bold;
+    border-top: solid #C3C3C3 1px;
+    border-bottom: solid #C3C3C3 1px;
+    margin: 4px 0 4px;
+    text-align: center;
+    color: #F4F4F4;
+    mix-blend-mode: difference;
+    position: absolute;
+    transform: translate(0px, -400px);
+    z-index: 20;
+    opacity: 0;
+    transition: visibility 0s, opacity .5s linear;
+}
+
+.postsGrid {
+    margin: 200px 0 68px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 43px;
+    justify-content: center;
+    width: 90vw
+}
+
+.postContainer {
+    margin: 0;
+    height: 204px;
+    display: flex;
+}
+
+.postImage {
+    object-fit: cover;
+    width: 359px;
+    height: 204px;
+    filter: brightness(80%);
+}
+
+.postTitle {
+    color: #F4F4F4;
+    position: absolute;
+    font-size: 24px;
+    width: 288px;
+}
+
+.optionsBtn {
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+    right: 16px;
+    top: 8px;
+}
+
+.circle {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #F4F4F4;
+}
+
+@media (min-width: 700px) {
+    #section2 {
+        max-height: 170vh;
+    }
+
+    .carousel img {
+        height: 719px;
+        width: 75vw;
+        max-width: 1080px;
+    }
+
+    .nextBtn {
+        transform: translateY(150px);
+    }
+
+    .backBtn {
+        transform: translateY(150px);
+    }
+
+    .postsHeader {
+        transform: translateY(-140px);
+    }
+
+    .postsGrid {
+        transform: translateY(250px);
+    }
+}

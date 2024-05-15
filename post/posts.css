@@ -1,0 +1,95 @@
+.postWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.postInfo {
+    width: 84vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profilePicture {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+.user {
+    font-size: 8px;
+    font-weight: lighter;
+    color: #2E396F;
+}
+.date {
+    font-size: 8px;
+    font-weight: lighter;
+    color: #2E396F;
+}
+
+.image {
+    height: 400px;
+    width: 84vw;
+    object-fit: cover;
+    filter: brightness(75%);
+}
+
+.title {
+    color: #F4F4F4;
+    position: absolute;
+    top: 41.8vw;
+    width: 83.7vw;
+    z-index: 20;
+    font-size: 56px;
+    text-align: center;
+}
+
+.body {
+    width: 84vw;
+    margin: 16px 0;
+    font-size: 10px;
+    text-align: left;
+}
+
+@media (min-width: 700px){
+    .image {
+        height: 740px;
+    }
+
+    .title {
+      font-size: 90px;
+        color: black;
+        position: inherit;
+        text-align: left;
+        width: 84vw;
+    }
+
+    .body {
+        font-size: 24px;
+    }
+
+    .postInfo {
+        position: absolute;
+        transform: translateY(750px);
+    }
+
+    .user{
+        font-size: 20px;
+    }
+
+    .date {
+        font-size: 20px;
+    }
+
+    .profilePicture {
+        height: 32px;
+        width: 32px;
+    }
+}
