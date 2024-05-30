@@ -4,10 +4,10 @@ let postHeader = document.querySelector('.postsHeader');
 
 window.addEventListener("scroll", function() {
     let value = window.scrollY;
-    if (value < 850){
-    document.getElementById('top').style.top = value * 0.12 + 'px';
-    document.getElementById('bottom').style.top = value * 1.8 + 'px';
-    document.getElementById('section2').style.height = value * 2 + 'px';
+    if (value < 850) {
+        document.getElementById('top').style.top = value * 0.12 + 'px';
+        document.getElementById('bottom').style.top = value * 1.8 + 'px';
+        document.getElementById('section2').style.height = value * 2 + 'px';
     }
 
     if (value >= 320) {
@@ -25,18 +25,19 @@ window.addEventListener("scroll", function() {
         postHeader.style.opacity = "1";
     }
 
-
     if (value < 1300) {
         postHeader.style.marginTop = value * .31 + 'px';
     }
 });
 
-document.addEventListener("DOMContentLoaded", function(){
-    let posts = 'https://v2.api.noroff.dev/blog/posts/Yeager_test';
+document.addEventListener("DOMContentLoaded", function() {
+    let userIsLoggedIn = 'accessToken' in localStorage;
+    let posts = 'https://v2.api.noroff.dev/blog/posts/YEAGER';
     fetch(posts)
         .then(response => response.json())
         .then(data => {
             localStorage.setItem('postData', JSON.stringify(data));
+            localStorage.removeItem('editMode')
             displayCarousel();
             displayGrid();
         });
@@ -44,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function(){
     function displayCarousel() {
         let postData = JSON.parse(localStorage.getItem('postData'));
         let post = postData.data;
+        let recentPosts = post.slice(-3);
         let currentIndex = 0;
 
         function showPost(index) {
@@ -54,24 +56,39 @@ document.addEventListener("DOMContentLoaded", function(){
 
             let titleDiv = document.querySelector('.title');
             titleDiv.textContent = title;
-            if (title.length > 30) {
-                titleDiv.style.transform = "translate(16px, 188px)";
-            } else {
-                titleDiv.style.transform = "translate(16px, 225px)";
-            }
 
+            let adjustTitlePosition = function() {
+                let desktop = window.innerWidth;
+
+                if (desktop > 700) {
+                    if (title.length > 50) {
+                        titleDiv.style.transform = "translate(16px, 600px)";
+                    } else {
+                        titleDiv.style.transform = "translate(16px, 625px)";
+                    }
+                } else {
+                    if (title.length > 40) {
+                        titleDiv.style.transform = "translate(16px, 188px)";
+                    } else {
+                        titleDiv.style.transform = "translate(16px, 225px)";
+                    }
+                }
+            };
+
+            adjustTitlePosition();
+            window.addEventListener("resize", adjustTitlePosition);
 
             let imageDiv = document.querySelector('.image');
             imageDiv.src = image;
             imageDiv.style.opacity = '0';
-            setTimeout(() =>{
+            setTimeout(() => {
                 imageDiv.style.opacity = '1';
             }, 125);
 
             let click = document.querySelector('.img');
-            click.addEventListener("click", function(){
+            click.addEventListener("click", function() {
                 localStorage.setItem('postId', id);
-            })
+            });
         }
 
         showPost(currentIndex);
@@ -80,14 +97,24 @@ document.addEventListener("DOMContentLoaded", function(){
         let back = document.querySelector('.backBtn');
 
         next.onclick = function() {
-            currentIndex = (currentIndex + 1) % post.length;
+            currentIndex = (currentIndex + 1) % recentPosts.length;
             showPost(currentIndex);
         };
 
         back.onclick = function() {
-            currentIndex = (currentIndex - 1 + post.length) % post.length;
+            currentIndex = (currentIndex - 1 + recentPosts.length) % recentPosts.length;
             showPost(currentIndex);
         };
+    }
+
+    let newPost = document.querySelector('.newPost');
+
+    if (userIsLoggedIn) {
+        newPost.style.display = 'flex';
+
+    } else {
+        newPost.style.display = 'none';
+
     }
 
     function displayGrid() {
@@ -122,18 +149,21 @@ document.addEventListener("DOMContentLoaded", function(){
             let optionsBtn = document.createElement('div');
             optionsBtn.classList.add('optionsBtn');
             postContainer.appendChild(optionsBtn);
-            for (x=0; x<3; x++) {
+            for (let x = 0; x < 3; x++) {
                 let circle = document.createElement('div');
                 circle.classList.add('circle');
                 optionsBtn.appendChild(circle);
             }
 
-            postContainer.addEventListener("click", function(){
-                localStorage.setItem('postId', id)
-            })
+            postContainer.addEventListener("click", function() {
+                localStorage.setItem('postId', id);
+            });
 
+            if (userIsLoggedIn) {
+                optionsBtn.style.display = 'flex';
+            } else {
+                optionsBtn.style.display = 'none';
+            }
         }
     }
 });
-
-

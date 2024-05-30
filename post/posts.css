@@ -1,3 +1,31 @@
+.editBtn {
+    width: 92vw;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.editBtn button {
+    border: none;
+    border-radius: 0;
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+    font-size: 8px;
+    font-weight: lighter;
+    height: 20px;
+    width: 43px;
+    transition: all .2s ease-in-out;
+}
+
+.editBtn button:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
 .postWrapper {
     display: flex;
     flex-direction: column;
@@ -39,12 +67,24 @@
     width: 84vw;
     object-fit: cover;
     filter: brightness(75%);
+    order: 1;
+}
+
+.titleWrapper {
+    color: #F4F4F4;
+    position: absolute;
+    transform: translateY(-406px);
+    width: 84vw;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 2;
 }
 
 .title {
     color: #F4F4F4;
-    position: absolute;
-    top: 41.8vw;
+    position: relative;
     width: 83.7vw;
     z-index: 20;
     font-size: 56px;
@@ -63,12 +103,19 @@
         height: 740px;
     }
 
+    .titleWrapper {
+        position: inherit;
+        transform: translateY(0);
+        height: fit-content;
+    }
+
     .title {
-      font-size: 90px;
+      font-size: 6.25vw;
         color: black;
         position: inherit;
         text-align: left;
         width: 84vw;
+        margin: 60px 0 20px 0;
     }
 
     .body {

@@ -16,10 +16,10 @@
 </head>
 <body>
     <header>
-        <div class="logo">
+        <a href="../index.html" class="logo">
             <img src="../assets/icons/ff101b85-04ff-4faf-bb0d-6fdb9b7a56b1.svg" alt="Yeager">
             <h2>YEAGER</h2>
-        </div>
+        </a>
         <div class="burgerMenu">
             <div></div>
             <div></div>
@@ -35,25 +35,47 @@
             </svg>
             <div class="burgerMenuClose">x</div>
             <ul>
-                <li>Home</li>
-                <li>About us</li>
-                <li>Log in</li>
+                <li id="home">Home</li>
+                <li id="about">About us</li>
+                <li id="logIn">Log in</li>
             </ul>
         </div>
         <div class="desktopHeader">
-            <ul>
-                <li>Home</li>
+            <ul class="desktopLinks">
+                <li id="homeDesktop">Home</li>
                 <li>About us</li>
-                <li><img class="profilePic" src="../assets/icons/Profile_Icon.jpeg" alt=""></li>
+                <li id="avatar">
+                    <img class="profilePic" src="../assets/icons/Profile_Icon.jpeg" alt="">
+                    <div id="dropdown">
+                        <ul class="dropdownList"></ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </header>
 
     <main>
+        <div class="editBtn">
+            <button><svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_33_110)">
+                    <path d="M3.73095 1.01109L4.95148 2.23162L1.86197 5.32113L0.642127 4.1006L3.73095 1.01109ZM5.87763 0.716729L5.33332 0.172417C5.12296 -0.037941 4.78139 -0.037941 4.57031 0.172417L4.04892 0.693813L5.26945 1.91435L5.87763 1.30617C6.04079 1.143 6.04079 0.879883 5.87763 0.716729ZM0.00339646 5.81615C-0.0188157 5.91611 0.0714397 6.00569 0.171417 5.98138L1.5315 5.65161L0.311656 4.43109L0.00339646 5.81615Z" fill="black"/>
+                </g>
+                <defs>
+                    <clipPath id="clip0_33_110">
+                        <rect width="6" height="6" fill="white"/>
+                    </clipPath>
+                </defs>
+            </svg>
+                EDIT
+            </button>
+        </div>
+
         <div class="postWrapper">
             <div class="imageTitle">
                 <img class="image" src="" alt="cover image">
-                <h2 class="title"></h2>
+                <div class="titleWrapper">
+                    <h2 class="title"></h2>
+                </div>
             </div>
 
 
@@ -69,7 +91,6 @@
 
             </div>
         </div>
-
     </main>
 </body>
 </html>

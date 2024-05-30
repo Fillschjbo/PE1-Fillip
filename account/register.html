@@ -16,10 +16,10 @@
 </head>
 <body>
     <header>
-        <div class="logo">
+        <a href="../index.html" class="logo">
             <img src="../assets/icons/ff101b85-04ff-4faf-bb0d-6fdb9b7a56b1.svg" alt="Yeager">
             <h2>YEAGER</h2>
-        </div>
+        </a>
         <div class="burgerMenu">
             <div></div>
             <div></div>
@@ -35,16 +35,21 @@
             </svg>
             <div class="burgerMenuClose">x</div>
             <ul>
-                <li>Home</li>
-                <li>About us</li>
-                <li>Log in</li>
+                <li id="home">Home</li>
+                <li id="about">About us</li>
+                <li id="logIn">Log in</li>
             </ul>
         </div>
         <div class="desktopHeader">
-            <ul>
-                <li>Home</li>
+            <ul class="desktopLinks">
+                <li id="homeDesktop">Home</li>
                 <li>About us</li>
-                <li><img class="profilePic" src="../assets/icons/Profile_Icon.jpeg" alt=""></li>
+                <li id="avatar">
+                    <img class="profilePic" src="../assets/icons/Profile_Icon.jpeg" alt="">
+                    <div id="dropdown">
+                        <ul class="dropdownList"></ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </header>

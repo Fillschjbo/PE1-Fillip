@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function (){
     let postID = localStorage.getItem('postId');
-    let post = `https://v2.api.noroff.dev/blog/posts/Yeager_test/${postID}`
+    let post = `https://v2.api.noroff.dev/blog/posts/YEAGER/${postID}`
     fetch(post)
         .then(response => response.json())
         .then(data => {
@@ -26,15 +26,15 @@ document.addEventListener('DOMContentLoaded', function (){
         let postInfo = document.querySelector('.postInfo');
         let profile = document.querySelector('.profile');
         let imageTitle = document.querySelector('.imageTitle');
+        let titleWrapper = document.querySelector('.titleWrapper');
 
         let image = document.querySelector('.image');
         image.src = post.media.url;
         image.alt = post.media.alt;
-        imageTitle.appendChild(image);
 
         let title = document.querySelector('.title');
         title.textContent = post.title;
-        imageTitle.appendChild(title);
+        titleWrapper.appendChild(title);
 
         let profilePic = document.querySelector('.profilePicture');
         profilePic.src = post.author.avatar.url;
@@ -59,6 +59,21 @@ document.addEventListener('DOMContentLoaded', function (){
         body.innerText = post.body;
         postWrapper.appendChild(body);
     }
+
+    let userIsLoggedIn = 'accessToken' in localStorage;
+    let editButton = document.querySelector('.editBtn');
+    editButton.addEventListener('click', function(){
+        localStorage.setItem('editMode', "true");
+        window.location.href = "edit.html";
+    })
+    
+    if (userIsLoggedIn) {
+        editButton.style.display = 'flex'
+    }else {
+        editButton.style.display = 'none'
+    }
 })
+
+
 
 

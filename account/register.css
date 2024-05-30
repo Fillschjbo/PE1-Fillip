@@ -1,12 +1,13 @@
 main {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     width: 100vw;
 }
 
 .profilePicWrapper {
-    margin-top: 155px;
+    margin-top: 120px;
     display: flex;
     flex-direction: column;
     height: 161px;
@@ -42,6 +43,13 @@ main {
     border-radius: 50%;
 }
 
+.uploadImg:hover {
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.44) 0%);
+    padding-bottom: 0;
+    align-items: center;
+    cursor: pointer;
+}
+
 .urlModal {
     display: none;
     position: absolute;
@@ -74,6 +82,14 @@ main {
     padding: 2px 8px;
     background-color: black;
     color: #F4F4F4;
+    border: black solid 1px;
+    transition: all .2s ease-in-out;
+}
+
+.submit:hover {
+    cursor: pointer;
+    color: black;
+    background-color: white;
 }
 
 .closeBtn {
@@ -83,12 +99,19 @@ main {
     position: relative;
     top: 50px;
     left: 37%;
+    transition: all .2s ease-in-out;
+}
+
+.closeBtn:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
 }
 
 .userRegisterWrapper {
     display: flex;
     flex-direction: column;
-    width: 86vw;
+    align-items: center;
+    width: 100vw;
     margin-top: 80px;
 }
 
@@ -98,6 +121,7 @@ main {
 
 .userRegisterWrapper input {
     height: 28px;
+    width: 86vw;
     padding-left: 8px;
     color: #464646;
 }
@@ -120,4 +144,59 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid black;
+    margin-bottom: 40px;
+}
+
+.createProfileBtn:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+@media (min-width: 700px) {
+    .userRegisterWrapper {
+        margin-top: 40px;
+    }
+
+    .userRegisterWrapper input {
+        max-width: 700px;
+        height: 42px;
+    }
+
+    .createProfileBtn {
+        max-width: 700px;
+        height: 42px;
+        border: solid 1px black;
+    }
+
+    .createProfileBtn:hover {
+        cursor: pointer;
+        background-color: white;
+        border: solid 1px black;
+        color: black;
+    }
+
+    .logoImg img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 40px;
+    }
+
+    .uploadImg{
+        height: 100px;
+        width: 100px;
+        padding-bottom: 2px;
+    }
+
+    .profilePicWrapper {
+        height: 100px;
+        width: 100px;
+        margin-top: 75px;
+    }
+
+    .selectProfilePic {
+        height: 100px;
+        width: 100px;
+    }
 }
