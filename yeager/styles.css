@@ -28,6 +28,7 @@ header img {
 
 .logo {
     text-decoration: none;
+    color: black;
 }
 
 .logo:visited {

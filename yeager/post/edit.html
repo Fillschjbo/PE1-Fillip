@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../styles.css">
-    <link rel="stylesheet" type="text/css" href="../account/login.css">
+    <link rel="stylesheet" type="text/css" href="../post/edit.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <title>Yeager | Log In</title>
-    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
-    <script src="login.js" defer></script>
+    <title>Yeager | Edit</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+    <script src="edit.js" defer></script>
     <script src="../header_logic.js" defer></script>
 </head>
 
@@ -56,20 +56,60 @@
     </header>
 
     <main>
-        <div class="logoImg">
-            <img src="../assets/icons/ff101b85-04ff-4faf-bb0d-6fdb9b7a56b1.svg" alt="YEAGER">
+        <div class="deleteBtn">
+            <button><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.66669 7.33325V11.3333" stroke="#F4F4F4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9.33331 7.33325V11.3333" stroke="#F4F4F4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.66669 4.66675H13.3334" stroke="#F4F4F4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 4.66675H8H12V12.0001C12 13.1047 11.1046 14.0001 10 14.0001H6C4.89543 14.0001 4 13.1047 4 12.0001V4.66675Z" stroke="#F4F4F4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 3.33333C6 2.59695 6.59695 2 7.33333 2H8.66667C9.40307 2 10 2.59695 10 3.33333V4.66667H6V3.33333Z" stroke="#F4F4F4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </button>
         </div>
-        <div class="loginInput">
-            <label for="email"></label>
-            <input type="email" id="email" name="username" placeholder="Email">
 
-            <label for="password"></label>
-            <input type="password" id="password" name="username" placeholder="Password">
+        <div class="deleteModal">
+            <div class="deleteWrapper">
+                <h4>Are you sure you want to delete post?</h4>
+                <div class="deleteBtnsWrapper">
+                    <div class="deleteBtns">
+                        <button class="cancelDel">Cancel</button>
+                        <button class="confirmDel">Delete</button>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <form class="postInputWrapper">
+            <div class="urlModal">
+                <div class="closeBtn">x</div>
+                <div class="urlField">
+                    <label for="url">Please paste in image URL:</label>
+                    <input type="text" id="url" name="url" value="https://images.unsplash.com/photo-1615498275525-9501c6c44760?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                    <div class="submit">Submit</div>
+                </div>
+            </div>
+
+            <label for="title"></label>
+            <input type="text" id="title" name="title" placeholder="Title">
+
+            <div class="uploadImage">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 9.66667V12.3333C13 12.7015 12.7015 13 12.3333 13H1.66667C1.29848 13 1 12.7015 1 12.3333V11M13 9.66667V1.66667C13 1.29848 12.7015 1 12.3333 1H1.66667C1.29848 1 1 1.29848 1 1.66667V11M13 9.66667L9.32193 7.2146C9.12287 7.08187 8.86793 7.066 8.65393 7.173L1 11" stroke="#464646" stroke-linejoin="round"/>
+                    <path d="M4 6C4.55228 6 5 5.55228 5 5C5 4.44772 4.55228 4 4 4C3.44772 4 3 4.44772 3 5C3 5.55228 3.44772 6 4 6Z" stroke="#464646" stroke-linejoin="round"/>
+                </svg>
+                Upload Image
+            </div>
+
+            <label for="body"></label>
+            <textarea type="body" id="body" name="body" placeholder="Body"></textarea>
+        </form>
 
         <div id="errorMessage"></div>
 
-        <button type="submit" class="loginBtn">LOG IN</button>
+        <div class="btnsWrapper">
+            <button class="cancel">CANCEL</button>
+            <button class="confirm">POST</button>
+        </div>
     </main>
 </body>
 </html>
